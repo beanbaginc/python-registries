@@ -1,0 +1,55 @@
+[build-system]
+requires = ['setuptools']
+build-backend = 'setuptools.build_meta'
+
+
+[project]
+name = 'registries'
+description = 'Registration management and lookup of objects, for extensible applications.'
+authors = [
+    {name = 'Beanbag, Inc.', email = 'questions@beanbaginc.com'},
+]
+license = { text = 'MIT' }
+readme = 'README.md'
+requires-python = '>=3.8'
+dynamic = ['version']
+
+dependencies = [
+    'typing_extensions>=4.4',
+
+    # 5.0 is equivalent to importlib.metadata in Python 3.12.
+    'importlib_metadata>=5.0; python_version < "3.12"',
+]
+
+classifiers = [
+    'Development Status :: 5 - Production/Stable',
+    'Environment :: Other Environment',
+    'Intended Audience :: Developers',
+    'License :: OSI Approved :: MIT License',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+    'Programming Language :: Python :: 3.12',
+    'Programming Language :: Python :: 3.13',
+    'Topic :: Software Development',
+    'Topic :: Software Development :: Libraries',
+    'Topic :: Software Development :: Libraries :: Python Modules',
+]
+
+
+[project.urls]
+homepage = 'https://github.com/beanbaginc/python-registries'
+documentation = 'https://github.com/beanbaginc/python-registries'
+repository = 'https://github.com/beanbaginc/python-registries'
+
+
+[tool.setuptools.dynamic]
+version = { attr = 'registries._version.get_package_version' }
+
+
+[tool.setuptools.package-data]
+registries = ['py.typed']

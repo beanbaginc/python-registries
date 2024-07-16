@@ -1,0 +1,43 @@
+==============
+Registries 1.0
+==============
+
+**Release date:** July 30, 2024
+
+Registries is a module for managing collections of objects, allowing for easy
+registration, lookups, and access.
+
+This is ideal for applications that need to manage abstract interfaces with
+backend implementations, such as plugins, extensions, and other cases where
+you'd employ a Registry Pattern.
+
+Registries was built to help develop `Review Board`_, our premier code review
+product from Beanbag_, and we're making it available for use in other
+projects.
+
+
+Features in 1.0
+===============
+
+* **Dynamic registration** and unregistration of items.
+* **Flexible lookups** based on registered lookup attributes.
+* **Thread-safety** to avoid conflicts with modifying a registry.
+* **Extensibility** through pre/post hooks for registration, unregistration,
+  initial population, and resetting of registries.
+* **Python type hints** to ease development.
+* **Built-in registries** for order-dependent items and wrapping around
+  `Python Entry Points`_.
+
+
+.. _Python Entry Points:
+   https://packaging.python.org/en/latest/specifications/entry-points/
+
+
+Learn More
+==========
+
+See the :ref:`documentation <registries-docs>` for information.
+
+
+.. _Beanbag: https://www.beanbaginc.com
+.. _Review Board: https://www.reviewboard.org

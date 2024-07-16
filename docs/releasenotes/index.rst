@@ -9,3 +9,5 @@ Release Notes
 
 .. toctree::
    :maxdepth: 1
+
+   Registries 1.0 (July 30, 2024) <1.0>

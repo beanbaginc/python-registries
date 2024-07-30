@@ -1,3 +1,5 @@
+.. _registries-docs:
+
 =====================
 Registries for Python
 =====================
@@ -8,6 +10,14 @@ registration, lookups, and access.
 This is ideal for applications that need to manage abstract interfaces with
 backend implementations, such as plugins, extensions, and other cases where
 you'd employ a Registry Pattern.
+
+Registries was built to help develop `Review Board`_, our premier code review
+product from Beanbag_, and we're making it available for use in other
+projects.
+
+
+.. _Beanbag: https://www.beanbaginc.com
+.. _Review Board: https://www.reviewboard.org
 
 
 What is the Registry Pattern?
@@ -70,6 +80,7 @@ Here's a quick example to get you started with Registries:
    from typing import Type
 
    from registries import Registry
+   from registries.errors import RegistrationConflictError
 
 
    # Let's create a base class for our objects and some default items.
@@ -126,10 +137,35 @@ Here's a quick example to get you started with Registries:
    assert registry.get(my_item_id='baritem') is BarItem
 
 
+   # Registering another item with the same ID will raise a
+   # RegistrationConflictError.
+   class ConflictItem(BaseItem):
+       my_item_id = 'fooitem'
+
+   try:
+       registry.register(ConflictItem)
+   except RegistrationConflictError:
+       print('ConflictItem conflicts with FooItem!')
+
    # Let's unregister FooItem.
    registry.unregister(FooItem)
 
    assert FooItem not in registry
+
+   # And now we can register ConflictItem!
+   registry.register(ConflictItem)
+   assert registry.get(my_item_id='fooitem') is ConflictItem
+
+
+This is just a quick overview of how you might work with a registry. There's a
+lot more that can be done, including:
+
+* Custom registry-defined error messages and exception classes.
+* Multi-attribute registration and lookup.
+* Hooks for customization the registration and lookup process, to tie into
+  other pieces of your architecture.
+
+All thread-safe, all in your control.
 
 
 Documentation

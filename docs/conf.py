@@ -79,7 +79,7 @@ def linkcode_resolve(domain, info):
         else:
             branch += '.x'
     else:
-        branch = 'master'
+        branch = 'main'
 
     return github_linkcode_resolve(domain=domain,
                                    info=info,

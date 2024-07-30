@@ -5,7 +5,7 @@ build-backend = 'setuptools.build_meta'
 
 [project]
 name = 'registries'
-description = 'Registration management and lookup of objects, for extensible applications.'
+description = 'Registration management and lookup of objects, for extensible Python applications.'
 authors = [
     {name = 'Beanbag, Inc.', email = 'questions@beanbaginc.com'},
 ]
@@ -42,8 +42,8 @@ classifiers = [
 
 
 [project.urls]
-homepage = 'https://github.com/beanbaginc/python-registries'
-documentation = 'https://github.com/beanbaginc/python-registries'
+homepage = 'https://registries.readthedocs.io/'
+documentation = 'https://registries.readthedocs.io/'
 repository = 'https://github.com/beanbaginc/python-registries'
 
 
